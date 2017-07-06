@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>Titanic - Data Analysis Project -Copy1</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Titanic_Data_Analysis_Project</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11790,7 +11790,7 @@ div#notebook {
 <p>In this study, I will focus my attention on the surviving rate of passengers on board the Titanic.</p>
 <p>I would like to understand if there was a significant difference in survived people between the one that were traveling alone on the ship and the one that were on board with other family members. To do so I will create a new variable called Alone that will indicate for 0 that the passenger was traveling alone and 1 with one or more relatives. I will make use of the variable SibSb and Parch to know if the passengers were traveling alone or not. Although we do not have information about friends or unidentified couples on board. At the begin I will focus my attention to the general case and then later I will continue this investigation for women and men separately.</p>
 <p>Secondly, I would like to investigate the difference in the ticket fare among the passengers that survived and the passengers that did not. I would like to consider this information as the status of the passenger in state of using class that were only 3. I could be much more helpful have the information about the salary of the passenger but we do not have it.</p>
-<p>Before looking for an answer to my question I will import the data using Panda functions for CSv and I will check the data imported looking for anomalies that could compromise my research. I will use the function describe looking for strange values and the function isnull to understand how many values are missing in the table.</p>
+<p>Before looking for an answer to my question I will import the data using Panda functions for CSV and I will check the data imported looking for anomalies that could compromise my research. I will use the function describe looking for strange values and the function isnull to understand how many values are missing in the table.</p>
 
 </div>
 </div>
@@ -12471,10 +12471,10 @@ kqQmJwtJUpPNQpLUZLOQJDXZLCRJTTYLSVKTzUKS1PQDWUjMVxb1JWsAAAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The first thigs that I notice is that this data does not contain all the data about the passengers on board the Titanic. In fact, we have in this table 891 passengers while on board the titanic were 1316 passengers and 908 crew members. So, our study will be not exhaustive as if we were in possess of all the information.<br>
-But this histogram that show the distributions of the variable Age over passengers, we can notice a shape similar to a normal distribution, and we can supposed to have a valid sample of all the passengers on board the titanic.</p>
-<p>Secondly we can notice that we have some fields missing, for 177 passengers we do not have information about the age and for 687 we do not know the cabin and finally for 2 passengers we do not have the embarked port. Considered what will be the focus of this study, these missing fields will be not be an issue, they will be not be used. 
-on the other hand, Survived, Sex, Fare, SibSp and Parch, the variables of interests in this study are not missing.</p>
-<p>Although, there is one thing that catch my attention, and it is the minimum value of Fare (0.00) and the maximum. I will therefor investigate later these values to try answering correctly at my second question.</p>
+But in this histogram, that shows the distributions of the variable Age over passengers, we can notice a shape similar to a normal distribution, and we can suppose to have a valid sample of all the passengers on board the titanic. 
+Secondly we can notice that we have some fields missing, for 177 passengers we do not have information about the age and for 687 we do not know the cabin and finally for 2 passengers we do not have the embarked port. Considered what will be the focus of this study, these missing fields will be not be an issue, they will be not be used. 
+On the other hand, Survived, Sex, Fare, SibSp and Parch, the variables of interests in this study are not missing. 
+Although, there is one thing that catch my attention, and it is the minimum value of Fare (0.00) and the maximum. I will therefor investigate later these values to try answering correctly at my second question.</p>
 
 </div>
 </div>
@@ -12704,7 +12704,8 @@ To perform all this, I will define 3 function.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Analysis-of-Alone-variable">Analysis of Alone variable<a class="anchor-link" href="#Analysis-of-Alone-variable">&#182;</a></h2><p>We have now more possibilities to work with the data. I m gonna plot now the distribution of passengers that were alone or not.</p>
+<h2 id="Analysis-of-Alone-variable">Analysis of Alone variable<a class="anchor-link" href="#Analysis-of-Alone-variable">&#182;</a></h2><p>We have now more possibilities to work with the data. 
+I'm gonna plot now the distribution of passengers that were alone or not.</p>
 
 </div>
 </div>
@@ -12959,11 +12960,13 @@ Name: Survived, dtype: float64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In order to evaluate the independence of these two categorical variables, I will make use of the Chi-Square Test for Independence. The Null hypothesis is that the two variables, Alone and Survived, are independent. The alternative hypothesis is that knowing the value of the first could help predict the second. 
-H0: Alone and Survived are independent. 
-H1: Alone A and Survived are not independent.
-For this test we are going to set a significant level of 0.05 (α)
-To do so, I will create a function that could be used later on.</p>
+<p>In order to evaluate the independence of these two categorical variables, I will make use of the Chi-Square Test for Independence. The Null hypothesis is that the two variables, Alone and Survived, are independent. The alternative hypothesis is that knowing the value of the first could help predict the second.</p>
+<ul>
+<li>H0: Alone and Survived are independent. </li>
+<li>H1: Alone A and Survived are not independent.</li>
+</ul>
+<p>For this test we are going to set a significant level of 0.05 (α).</p>
+<p>To do so, I will create a function that could be used later on.</p>
 
 </div>
 </div>
@@ -12992,7 +12995,7 @@ To do so, I will create a function that could be used later on.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I will create 2 series for passengers on board , Alone and not with only the survived variable.</p>
+<p>I will create 2 series for passengers on board , Alone and not Alone, with only the survived variable.</p>
 
 </div>
 </div>
@@ -13455,7 +13458,8 @@ There were 126 female alone on board, only 99 survived
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Looking at the data we can notice a difference between the two means, alone or not alone, but the result is opposite by sex. The mean of survived women traveling alone is 0.786 and not alone is 0.713 while for survived men alone is 0.156 and not alone is 0.271.</p>
+<p>Looking at the data we can notice a difference between the two means, alone or not alone, but the result is opposite by sex.<br>
+The mean of survived women traveling alone is 0.786 and not alone is 0.713 while for survived men alone is 0.156 and not alone is 0.271.</p>
 
 </div>
 </div>
@@ -15776,7 +15780,7 @@ I will in this case a function in scipy package after have divided my dataset by
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Conclusions">Conclusions<a class="anchor-link" href="#Conclusions">&#182;</a></h2><p>The dataset used in this study is just a part of all the data available of the passengers of the Titanic. As said at the beginning of this analysis, we only have used in this study only 891 passengers of 1316 total passengers. So, we couldn't perform our analysis of all the passengers.  There were as saw before some missing values,especailly Age and Cabin,  but the variables of interest of this study were not missing at all.<br>
-Said do, we can say that we discovered, in this study, that there is an interesting relation between being alone or not and survived ratio. Although this value that come from Parch and SibSp, do not count other kind of relations, like friendship or professional relation. It could be interesting investigate also with this kind of information. 
+Said so, we can say that we discovered, in this study, that there is an interesting relation between being alone or not and survived ratio. Although this value that come from Parch and SibSp, do not count other kind of relations, like friendship or professional relation. It could be interesting investigate also with this kind of information. 
 When we looked at Gender separately, we discover that a difference behaviour. First of all, the mean of survived male alone is less than the male not alone survived, while for female these two mean are opposite, so the mean of female alone is higher. Secondly for Male the variable Survived and alone were resulted not independent, while for female we cannot say the same.</p>
 <p>We can say that we discover also an significant difference between the ticket fare, among passengers that survived and not.<br>
 However, it could be interesting continuing this investigation, extracting the real ticket fare per person. The fare variable that we have in this data set is the fare that has been payed for the ticket all together, so in some case this fare is the correct value when the passenger was traveling alone, otherwise is the fare for the ticket for multiple persons. We could define a new variable dividing the fare by the numbers of family members (Parch + SibSb), and this could it be the fare for each passenger. But data shows that some tickets were bought for multiple passengers that were not family related, and this would create not correct values of our dataset. With more investigation and analysis this could be avoided, using the variable ticket and to look for duplicate values and use it to find the correct fare for each passenger.</p>
